@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Libre+Caslon+Text:wght@400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #212121;
+  --color-secondary: #d6cfc7;
+  --color-tertiary: #f4f1ee;
+  --font-heading: "Libre Caslon Text", serif;
+  --font-body: "Hanken Grotesk", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: "Hanken Grotesk", sans-serif;
+}
