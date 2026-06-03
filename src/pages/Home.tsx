@@ -6,7 +6,9 @@ export const Home = () => {
   return (
     <main className="bg-primary">
       <Header />
+
       <Hero />
+
       <Products />
     </main>
   );

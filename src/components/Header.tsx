@@ -2,7 +2,7 @@ import { ShoppingBag, User } from "lucide-react";
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 left-0 z-50 w-full">
+    <header className="fixed top-0 left-0 z-50 w-full bg-white/5 backdrop-blur-md border-b border-white/10">
       <div className="mx-auto flex h-20 items-center justify-between px-8">
         {/* Logo */}
         <div>
