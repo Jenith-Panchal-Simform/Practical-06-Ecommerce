@@ -1,4 +1,4 @@
-import { ShoppingBag, User } from "lucide-react";
+import { Search, ShoppingBag, User } from "lucide-react";
 
 export const Header = () => {
   return (
@@ -33,6 +33,7 @@ export const Header = () => {
 
         {/* Icons */}
         <div className="flex items-center gap-6 text-secondary">
+          <Search size={22} className="md:hidden" />
           <ShoppingBag size={22} />
           <User size={22} />
         </div>

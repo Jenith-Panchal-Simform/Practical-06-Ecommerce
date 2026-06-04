@@ -24,7 +24,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section className="relative h-[200vh]">
+    <section className="relative h-[200vh] w-full">
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Background Images */}
         <div className="absolute inset-0 grid grid-cols-4">

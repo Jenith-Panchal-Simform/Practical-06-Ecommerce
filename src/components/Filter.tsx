@@ -3,14 +3,29 @@ import { PriceRange } from "./PriceRange";
 
 export const Filter = () => {
   return (
-    <section className="w-2/12">
-      <div className="sticky top-20  bg-secondary h-[calc(100vh-80px)] px-5 py-5">
+    <aside
+      className="hidden
+        lg:block
+        lg:w-3/12
+        xl:w-2/12
+        shrink-0"
+    >
+      <div
+        className="sticky
+            top-20
+            h-[calc(100vh-80px)]
+            overflow-y-auto
+            bg-secondary
+            px-5
+            py-5"
+      >
         <h1
           className="
-                        font-heading
-                        text-primary
-                        text-xl
-                        md:text-5xl
+                         font-heading
+                text-primary
+                text-3xl
+                xl:text-5xl
+                wrap-break-word
                     "
         >
           FILTERS
@@ -29,6 +44,6 @@ export const Filter = () => {
         <hr />
         <PriceRange />
       </div>
-    </section>
+    </aside>
   );
 };

@@ -2,7 +2,7 @@ import { ProductCard } from "./ProductCard";
 
 export const ProductList = () => {
   return (
-    <section className="w-10/12">
+    <section className="w-full lg:w-9/12 xl:w-10/12">
       <div className="min-h-screen bg-tertiary px-10 pt-15">
         {/* top section  */}
         <div>
@@ -21,7 +21,14 @@ export const ProductList = () => {
         </div>
 
         {/* ProductItems Cards */}
-        <div className="grid grid-cols-4 gap-8">
+        <div
+          className="grid
+        grid-cols-1
+        sm:grid-cols-2
+        lg:grid-cols-3
+        xl:grid-cols-4
+        gap-8"
+        >
           {/* card1 */}
           <ProductCard />
           <ProductCard />
