@@ -1,4 +1,5 @@
 import { Header } from "../components/Header";
+import { Footer } from "./Footer";
 import { Hero } from "./Hero";
 import { Products } from "./Products";
 
@@ -10,6 +11,8 @@ export const Home = () => {
       <Hero />
 
       <Products />
+
+      <Footer />
     </main>
   );
 };
