@@ -22,7 +22,6 @@ export const Cart = () => {
           lg:grid-cols-1
           gap-10
           lg:gap-16
-          border-2 border-black
           p-10
         "
       >
