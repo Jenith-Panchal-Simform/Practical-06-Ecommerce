@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import type { Product } from "../types/product.types";
 
 type ProductDescriptionProps = {
   product: Product;
 };
 export const ProductDescription = ({ product }: ProductDescriptionProps) => {
+  const navigate = useNavigate();
+  function handleOnClose() {
+    navigate("/products");
+  }
   return (
     <div
       className="
@@ -16,16 +21,35 @@ export const ProductDescription = ({ product }: ProductDescriptionProps) => {
           "
     >
       <div>
-        <h1
-          className="
-                font-heading
-                text-primary
-                text-3xl
-                md:text-5xl
-              "
-        >
-          {product.title}
-        </h1>
+        <div className="flex items-center justify-between">
+          <h1
+            className="
+      font-heading
+      text-primary
+      text-3xl
+      md:text-5xl
+    "
+          >
+            {product.title}
+          </h1>
+
+          <button
+            className="
+      text-gray-500
+      hover:text-gray-700
+      focus:outline-none
+      p-2
+      rounded-full
+      transition
+      duration-200
+      cusrsor-pointer
+    "
+            aria-label="Close"
+            onClick={handleOnClose}
+          >
+            ✕
+          </button>
+        </div>
 
         <p
           className="

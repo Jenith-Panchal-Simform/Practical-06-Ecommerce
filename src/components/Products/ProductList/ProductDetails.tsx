@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { ProductDescription } from "../../components/Products/ProductDetails/ProductDescription";
-import { ProductImages } from "../../components/Products/ProductDetails/ProductImages";
-import type { Product } from "../../components/Products/types/product.types";
+import { ProductDescription } from "../ProductDetails/ProductDescription";
+import { ProductImages } from "../ProductDetails/ProductImages";
+import type { Product } from "../types/product.types";
 import { useEffect, useState } from "react";
-import { getProduct } from "../../services/httpServices";
-import { ProductSkeleton } from "../../components/Products/ProductSkeleton/ProductSkeleton";
+import { getProduct } from "../../../services/httpServices";
+import { ProductSkeleton } from "../Skeleton/ProductSkeleton";
 
 export const ProductDetails = () => {
   const { productId } = useParams();

@@ -1,4 +1,4 @@
-import { CartProduct } from "../../components/Products/Cart/CartProduct";
+import { CartProduct } from "./CartProduct";
 
 export const Cart = () => {
   return (

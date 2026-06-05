@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Hero } from "../components/Hero/Hero";
-import { Products } from "../components/Products/Products";
+import { Products } from "../components/Products/ProductList/Products";
 
-import { ProductDetails } from "../pages/ProductPage/ProductDetails";
-import { Cart } from "../pages/CartPage/Cart";
-import { Home } from "../components/Home/Home";
+import { ProductDetails } from "../components/Products/ProductList/ProductDetails";
+import { Cart } from "../components/Products/Cart/Cart";
+import { Home } from "../components/Layout/Home";
 
 export const AppRouter = createBrowserRouter([
   {
