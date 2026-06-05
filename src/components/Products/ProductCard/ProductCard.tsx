@@ -1,11 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import type { Product } from "../types/product.types";
+import type { JSX } from "react/jsx-runtime";
+
 interface ProductProps {
   product: Product;
 }
-export const ProductCard = ({ product }: ProductProps) => {
-  console.log({ product });
+export const ProductCard = ({ product }: ProductProps): JSX.Element => {
+  const navigate = useNavigate();
+
+  function handleProductClick() {
+    navigate(`/products/${product.id}`);
+  }
+
   return (
-    <div className="mt-5 min-w-0">
+    <div
+      className="mt-5 min-w-0 p-4 border border-transparent hover:border hover:border-primary hover:rounded-lg hover:cursor-pointer"
+      onClick={handleProductClick}
+    >
       <div className="aspect-4/5 overflow-hidden">
         <img
           src={`${product.images[0]}`}
