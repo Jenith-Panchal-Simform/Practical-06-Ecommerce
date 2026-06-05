@@ -1,6 +1,7 @@
-import { CartProduct } from "../components/CartProduct";
+import { ProductDescription } from "../../components/Products/ProductDescription";
+import { ProductImages } from "../../components/Products/ProductImages";
 
-export const Cart = () => {
+export const ProductDetails = () => {
   return (
     <section
       className="
@@ -10,7 +11,6 @@ export const Cart = () => {
         px-4
         md:px-8
         lg:px-16
-        min-h-screen
       "
     >
       <div
@@ -19,15 +19,16 @@ export const Cart = () => {
           max-w-7xl
           grid
           grid-cols-1
-          lg:grid-cols-1
+          lg:grid-cols-2
           gap-10
           lg:gap-16
-          p-10
         "
       >
-        <CartProduct />
-        <CartProduct />
-        <CartProduct />
+        {/* LEFT SECTION */}
+        <ProductImages />
+
+        {/* RIGHT SECTION */}
+        <ProductDescription />
       </div>
     </section>
   );
