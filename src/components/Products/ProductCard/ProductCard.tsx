@@ -1,9 +1,14 @@
-export const ProductCard = () => {
+import type { Product } from "../types/product.types";
+interface ProductProps {
+  product: Product;
+}
+export const ProductCard = ({ product }: ProductProps) => {
+  console.log({ product });
   return (
     <div className="mt-5 min-w-0">
       <div className="aspect-4/5 overflow-hidden">
         <img
-          src="/images/img1.jpeg"
+          src={`${product.images[0]}`}
           alt="product name"
           className="h-full w-full object-cover"
         />
@@ -15,7 +20,7 @@ export const ProductCard = () => {
                 font-bold
                 truncate"
         >
-          Product Name
+          {product.title}
         </p>
         <p
           className="  text-sm
@@ -23,7 +28,7 @@ export const ProductCard = () => {
                 line-clamp-2
                 wrap-break-word"
         >
-          Description
+          {product.description}
         </p>
         <div
           className="flex
@@ -32,9 +37,11 @@ export const ProductCard = () => {
                 gap-x-3
                 gap-y-1"
         >
-          <p className="text-base md:text-lg font-bold">Discounted Price</p>
+          <p className="text-base md:text-lg font-bold">₹ {product.price}</p>
           {/* Strikethroughed */}
-          <p className="text-gray-400 line-through text-sm md:text-base">100</p>
+          <p className="text-gray-400 line-through text-sm md:text-base">
+            ₹{product.price + (15 / 100) * product.price}
+          </p>
           <p className="text-xs font-semibold text-red-500">15% OFF</p>
         </div>
       </div>

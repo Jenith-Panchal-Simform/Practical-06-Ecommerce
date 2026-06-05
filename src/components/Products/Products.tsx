@@ -1,5 +1,5 @@
-import { Filter } from "../Filter/Filter";
-import { ProductList } from "./ProductList";
+import { Filter } from "./Filter/Filter";
+import { ProductList } from "./ProductList/ProductList";
 
 export const Products = () => {
   return (

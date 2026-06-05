@@ -1,6 +1,30 @@
-import { ProductCard } from "./ProductCard";
+import { useEffect, useState } from "react";
+import { ProductCard } from "../ProductCard/ProductCard";
+import { getProducts } from "../../../services/httpServices";
+import { type Product } from "../types/product.types";
+import { ProductSkeleton } from "../ProductSkeleton/ProductSkeleton";
 
 export const ProductList = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchUsers();
+  }, []);
+
+  if (loading) {
+    return <ProductSkeleton />;
+  }
   return (
     <section className="w-full lg:w-9/12 xl:w-10/12 ">
       <div className="min-h-screen bg-tertiary pt-25 pb-20 px-10">
@@ -29,12 +53,10 @@ export const ProductList = () => {
         xl:grid-cols-4
         gap-8"
         >
-          {/* card1 */}
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {/* card */}
+          {products.map((product) => {
+            return <ProductCard product={product} key={product.id} />;
+          })}
         </div>
       </div>
     </section>

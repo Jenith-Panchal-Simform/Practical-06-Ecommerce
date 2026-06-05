@@ -1,5 +1,5 @@
-import { ProductDescription } from "../../components/Products/ProductDescription";
-import { ProductImages } from "../../components/Products/ProductImages";
+import { ProductDescription } from "../../components/Products/ProductDetails/ProductDescription";
+import { ProductImages } from "../../components/Products/ProductDetails/ProductImages";
 
 export const ProductDetails = () => {
   return (
