@@ -1,7 +1,38 @@
+import { useParams } from "react-router-dom";
 import { ProductDescription } from "../../components/Products/ProductDetails/ProductDescription";
 import { ProductImages } from "../../components/Products/ProductDetails/ProductImages";
+import type { Product } from "../../components/Products/types/product.types";
+import { useEffect, useState } from "react";
+import { getProduct } from "../../services/httpServices";
+import { ProductSkeleton } from "../../components/Products/ProductSkeleton/ProductSkeleton";
 
 export const ProductDetails = () => {
+  const { productId } = useParams();
+
+  const [product, setProduct] = useState<Product>();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProduct() {
+      try {
+        if (productId) {
+          const data: Product = await getProduct(productId);
+          setProduct(data);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProduct();
+  }, [productId]);
+  console.log("Product", product);
+
+  if (loading) {
+    return <ProductSkeleton />;
+  }
+
   return (
     <section
       className="
@@ -25,10 +56,10 @@ export const ProductDetails = () => {
         "
       >
         {/* LEFT SECTION */}
-        <ProductImages />
+        <ProductImages images={product!.images} />
 
         {/* RIGHT SECTION */}
-        <ProductDescription />
+        <ProductDescription product={product!} />
       </div>
     </section>
   );

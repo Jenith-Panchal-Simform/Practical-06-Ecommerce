@@ -1,11 +1,11 @@
 import { useState } from "react";
-const images = [
-  "https://placehold.co/600x800",
-  "https://placehold.co/600x800",
-  "https://placehold.co/600x800",
-];
-export const ProductImages = () => {
+
+type ProductImagesProps = {
+  images: string[];
+};
+export const ProductImages = ({ images }: ProductImagesProps) => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
+  console.log(images);
   return (
     <div>
       {/* Main Image */}

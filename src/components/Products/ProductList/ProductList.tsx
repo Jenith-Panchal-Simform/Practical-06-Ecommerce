@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { getProducts } from "../../../services/httpServices";
 import { type Product } from "../types/product.types";
-import { ProductSkeleton } from "../ProductSkeleton/ProductSkeleton";
+import { ProductsSkeleton } from "../ProductSkeleton/ProductsSkeleton";
 
 export const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchUsers() {
+    async function fetchProducts() {
       try {
         const data = await getProducts();
         setProducts(data);
@@ -19,12 +19,13 @@ export const ProductList = () => {
         setLoading(false);
       }
     }
-    fetchUsers();
+    fetchProducts();
   }, []);
 
   if (loading) {
-    return <ProductSkeleton />;
+    return <ProductsSkeleton />;
   }
+
   return (
     <section className="w-full lg:w-9/12 xl:w-10/12 ">
       <div className="min-h-screen bg-tertiary pt-25 pb-20 px-10">
@@ -40,7 +41,7 @@ export const ProductList = () => {
               your everyday.
             </p>
 
-            <p>Product Count</p>
+            <p className="text-lg">{products.length} Items</p>
           </div>
         </div>
 

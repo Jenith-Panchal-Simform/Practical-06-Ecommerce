@@ -1,12 +1,9 @@
-const product = {
-  id: 4,
-  title: "Handmade Fresh Table",
-  slug: "handmade-fresh-table",
-  price: 687,
-  description:
-    "Andy shoes are designed to keeping in mind modern comfort and timeless style. Crafted with premium materials and attention to detail, this piece seamlessly elevates your everyday lifestyle.",
+import type { Product } from "../types/product.types";
+
+type ProductDescriptionProps = {
+  product: Product;
 };
-export const ProductDescription = () => {
+export const ProductDescription = ({ product }: ProductDescriptionProps) => {
   return (
     <div
       className="
