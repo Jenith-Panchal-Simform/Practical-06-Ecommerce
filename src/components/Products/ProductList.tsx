@@ -3,7 +3,7 @@ import { ProductCard } from "./ProductCard";
 export const ProductList = () => {
   return (
     <section className="w-full lg:w-9/12 xl:w-10/12 ">
-      <div className="min-h-screen bg-tertiary px-10 pt-15">
+      <div className="min-h-screen bg-tertiary pt-25 pb-20 px-10">
         {/* top section  */}
         <div>
           <h1 className="font-heading text-5xl text-primary">
@@ -40,11 +40,3 @@ export const ProductList = () => {
     </section>
   );
 };
-
-//products->product list,product filter,cart
-//header
-//foooter
-
-//in each there will be tsx,css and test files
-
-//unit,integration and end to end test
