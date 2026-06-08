@@ -4,12 +4,14 @@ import { Outlet } from "react-router-dom";
 import { ProductSearchProvider } from "../Products/ProductList/Product Wrapper/context/ProductSearchProvider";
 export const Home = () => {
   return (
-    <main className="bg-tertiary">
+    <>
       <ProductSearchProvider>
         <Header />
-        <Outlet />
+        <main className="bg-tertiary">
+          <Outlet />
+        </main>
       </ProductSearchProvider>
       <Footer />
-    </main>
+    </>
   );
 };
