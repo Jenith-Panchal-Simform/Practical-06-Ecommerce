@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import type { Product } from "../../types/product.types";
 import type { JSX } from "react/jsx-runtime";
+import type { Product } from "../Product Wrapper/ProductList";
 
 interface ProductProps {
   product: Product;

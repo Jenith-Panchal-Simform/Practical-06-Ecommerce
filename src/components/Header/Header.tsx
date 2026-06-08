@@ -1,7 +1,9 @@
-import { Package, Search, ShoppingBag } from "lucide-react";
+import { Package, Search } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { useProductSearch } from "../Products/ProductList/Product Wrapper/context/ProductSearchContext";
 
 export const Header = () => {
+  const { searchTerm, setSearchTerm } = useProductSearch();
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-white/20 backdrop-blur-md border-b border-white/10">
       <div className="mx-auto flex h-20 items-center justify-between px-8">
@@ -39,6 +41,8 @@ export const Header = () => {
                             backdrop-blur-md
                             outline-none
                         "
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
           />
         </div>
 
@@ -55,18 +59,6 @@ export const Header = () => {
             }
           >
             <Package size={22} />
-          </NavLink>
-
-          <NavLink
-            to="/cart"
-            className={({ isActive }) =>
-              `
-      transition-colors duration-300
-      ${isActive ? "text-primary" : "text-primary hover:text-secondary"}
-    `
-            }
-          >
-            <ShoppingBag size={22} />
           </NavLink>
         </div>
       </div>

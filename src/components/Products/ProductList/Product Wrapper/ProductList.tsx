@@ -1,12 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { getProducts } from "../../../../services/httpServices";
-import { type Product } from "../../types/product.types";
 import { ProductsSkeleton } from "../../Skeleton/ProductsSkeleton";
+import { useProductSearch } from "./context/ProductSearchContext";
+
+export type Product = {
+  id: string;
+  title: string;
+  slug: string;
+  price: number;
+  description: string;
+  category: Category;
+  images: string[];
+};
+
+export type Category = {
+  id: string;
+  name: string;
+  image: string;
+  slug: string;
+};
 
 export const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const { searchTerm } = useProductSearch();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -21,6 +40,16 @@ export const ProductList = () => {
     }
     fetchProducts();
   }, []);
+
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return products;
+    }
+
+    return products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+  }, [products, searchTerm]);
 
   if (loading) {
     return <ProductsSkeleton />;
@@ -41,7 +70,7 @@ export const ProductList = () => {
               your everyday.
             </p>
 
-            <p className="text-lg">{products.length} Items</p>
+            <p className="text-lg">{filteredProducts.length} Items</p>
           </div>
         </div>
 
@@ -55,9 +84,22 @@ export const ProductList = () => {
         gap-8"
         >
           {/* card */}
-          {products.map((product) => {
-            return <ProductCard product={product} key={product.id} />;
-          })}
+
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          ) : (
+            <div className="col-span-full py-20 text-center">
+              <h2 className="font-heading text-3xl text-primary">
+                No Products Found
+              </h2>
+
+              <p className="mt-3 text-gray-500">
+                Try searching with a different keyword.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

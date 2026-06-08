@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import type { Product } from "../types/product.types";
+import type { Product } from "../ProductList/Product Wrapper/ProductList";
 
 type ProductDescriptionProps = {
   product: Product;
