@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import type { Product } from "../ProductList/Product Wrapper/ProductList";
+import { useProductSearch } from "../ProductList/Product Wrapper/context/ProductSearchContext";
 
 type ProductDescriptionProps = {
   product: Product;
 };
 export const ProductDescription = ({ product }: ProductDescriptionProps) => {
+  const { setSearchTerm } = useProductSearch();
   const navigate = useNavigate();
   function handleOnClose() {
     navigate("/products");
+    setSearchTerm("");
   }
   return (
     <div
