@@ -27,7 +27,6 @@ export const ProductDetails = () => {
     }
     fetchProduct();
   }, [productId]);
-  console.log('Product', product);
 
   if (loading) {
     return <ProductSkeleton />;

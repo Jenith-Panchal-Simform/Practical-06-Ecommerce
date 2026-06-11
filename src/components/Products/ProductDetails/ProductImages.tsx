@@ -3,9 +3,10 @@ import { useState } from 'react';
 type ProductImagesProps = {
   images: string[];
 };
+
 export const ProductImages = ({ images }: ProductImagesProps) => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
-  console.log(images);
+
   return (
     <div>
       {/* Main Image */}
