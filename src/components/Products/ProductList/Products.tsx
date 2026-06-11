@@ -1,11 +1,11 @@
-import { Filter } from "./Product Wrapper/Filter";
-import { ProductList } from "./Product Wrapper/ProductList";
+import { Filter } from './Filter';
+import { ProductList } from './ProductList';
 
 export const Products = () => {
   return (
-    <section className=" relative min-h-screen flex">
+    <main className="relative flex min-h-screen">
       <Filter />
       <ProductList />
-    </section>
+    </main>
   );
 };

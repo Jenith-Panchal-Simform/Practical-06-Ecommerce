@@ -1,13 +1,13 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Hero } from "../components/Hero/Hero";
-import { Products } from "../components/Products/ProductList/Products";
-import { ProductDetails } from "../components/Products/ProductList/ProductDetails";
-import { Home } from "../components/Layout/Home";
+import { createBrowserRouter } from 'react-router-dom';
+import { Hero } from '../components/Hero/Hero';
+import { Products } from '../components/Products/ProductList/Products';
+import { ProductDetails } from '../components/Products/ProductDetails/ProductDetails';
+import { Layout } from '../components/Layout/Layout';
 
 export const AppRouter = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
+    path: '/',
+    element: <Layout />,
     children: [
       {
         index: true,
@@ -19,12 +19,12 @@ export const AppRouter = createBrowserRouter([
         ),
       },
       {
-        path: "products",
+        path: 'products',
         element: <Products />,
       },
       {
         //implement loader
-        path: "products/:productId",
+        path: 'products/:productId',
         element: <ProductDetails />,
       },
     ],

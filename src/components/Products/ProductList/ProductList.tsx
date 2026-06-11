@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
-import { ProductCard } from "../ProductCard/ProductCard";
-import { getProducts } from "../../../../services/httpServices";
-import { ProductsSkeleton } from "../../Skeleton/ProductsSkeleton";
-import { useProductSearch } from "./context/ProductSearchContext";
+import { useEffect, useMemo, useState } from 'react';
+import { ProductCard } from './ProductCard';
+import { ProductsSkeleton } from '../Skeleton/ProductsSkeleton';
+import { useProduct } from '../hooks/useProduct';
+import { getProducts } from '../../../services/httpMethods';
 
 export type Product = {
   id: string;
@@ -25,7 +25,7 @@ export const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const { searchTerm } = useProductSearch();
+  const { searchTerm } = useProduct();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -56,18 +56,15 @@ export const ProductList = () => {
   }
 
   return (
-    <section className="w-full lg:w-9/12 xl:w-10/12 ">
-      <div className="min-h-screen bg-tertiary pt-25 pb-20 px-10">
+    <section className="w-full lg:w-9/12 xl:w-10/12">
+      <div className="bg-tertiary min-h-screen px-10 pt-25 pb-20">
         {/* top section  */}
         <div>
-          <h1 className="font-heading text-5xl text-primary">
-            Curated Products
-          </h1>
-          <div className="flex w-full justify-between font-body pt-10">
+          <h1 className="font-heading text-primary text-5xl">Curated Products</h1>
+          <div className="font-body flex w-full justify-between pt-10">
             <p className="w-[40%]">
-              Exceptional quality for every lifestyle. Explore our latest
-              collection of premium products and accessories designed to elevate
-              your everyday.
+              Exceptional quality for every lifestyle. Explore our latest collection of premium
+              products and accessories designed to elevate your everyday.
             </p>
 
             <p className="text-lg">{filteredProducts.length} Items</p>
@@ -75,29 +72,16 @@ export const ProductList = () => {
         </div>
 
         {/* ProductItems Cards */}
-        <div
-          className="grid
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-3
-        xl:grid-cols-4
-        gap-8"
-        >
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* card */}
 
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))
+            filteredProducts.map((product) => <ProductCard key={product.id} product={product} />)
           ) : (
             <div className="col-span-full py-20 text-center">
-              <h2 className="font-heading text-3xl text-primary">
-                No Products Found
-              </h2>
+              <h2 className="font-heading text-primary text-3xl">No Products Found</h2>
 
-              <p className="mt-3 text-gray-500">
-                Try searching with a different keyword.
-              </p>
+              <p className="mt-3 text-gray-500">Try searching with a different keyword.</p>
             </div>
           )}
         </div>
