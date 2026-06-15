@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { ProductContext } from '../hooks/useProduct';
+import { ProductFilterContext } from '../hooks/useFilter';
 
 type ProductProviderProps = {
   children: ReactNode;
@@ -9,13 +9,13 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <ProductContext.Provider
+    <ProductFilterContext.Provider
       value={{
         searchTerm,
         setSearchTerm,
       }}
     >
       {children}
-    </ProductContext.Provider>
+    </ProductFilterContext.Provider>
   );
 };

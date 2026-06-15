@@ -1,10 +1,28 @@
-import type { Product } from '../components/Products/ProductList/ProductList';
-import { apiClient } from './apiClient';
+import { axiosInstance } from './axios';
 
-export const getProducts = () => {
-  return apiClient.get<Product[]>('/products?offset=0&limit=20');
-};
+export const httpMethods = {
+  get: async <T>(url: string): Promise<T> => {
+    const response = await axiosInstance.get<T>(url);
+    return response.data;
+  },
 
-export const getProduct = (id: string) => {
-  return apiClient.get<Product>(`/products/${id}`);
+  post: async <T>(url: string, data?: unknown): Promise<T> => {
+    const response = await axiosInstance.post<T>(url, data);
+    return response.data;
+  },
+
+  put: async <T>(url: string, data?: unknown): Promise<T> => {
+    const response = await axiosInstance.put<T>(url, data);
+    return response.data;
+  },
+
+  patch: async <T>(url: string, data?: unknown): Promise<T> => {
+    const response = await axiosInstance.patch<T>(url, data);
+    return response.data;
+  },
+
+  delete: async <T>(url: string): Promise<T> => {
+    const response = await axiosInstance.delete<T>(url);
+    return response.data;
+  },
 };

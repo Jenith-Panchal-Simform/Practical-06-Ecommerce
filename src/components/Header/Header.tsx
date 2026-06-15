@@ -1,9 +1,9 @@
 import { Package, Search } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
-import { useProduct } from '../Products/hooks/useProduct';
+import { useFilter } from '../Products/hooks/useFilter';
 
 export const Header = () => {
-  const { searchTerm, setSearchTerm } = useProduct();
+  const { searchTerm, setSearchTerm } = useFilter();
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-white/20 backdrop-blur-md">
       <div className="mx-auto flex h-20 items-center justify-between px-8">

@@ -2,9 +2,10 @@ import { useParams } from 'react-router-dom';
 import { ProductDescription } from './ProductDescription';
 import { ProductImages } from './ProductImages';
 import { useEffect, useState } from 'react';
-import { getProduct } from '../../../services/httpMethods';
+
 import { ProductSkeleton } from '../Skeleton/ProductSkeleton';
 import type { Product } from '../ProductList/ProductList';
+import { getProduct } from '../services/productService';
 
 export const ProductDetails = () => {
   const { productId } = useParams();

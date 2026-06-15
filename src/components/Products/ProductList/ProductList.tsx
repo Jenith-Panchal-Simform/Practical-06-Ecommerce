@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ProductCard } from './ProductCard';
 import { ProductsSkeleton } from '../Skeleton/ProductsSkeleton';
-import { useProduct } from '../hooks/useProduct';
-import { getProducts } from '../../../services/httpMethods';
+import { getProducts } from '../services/productService';
+import { useFilter } from '../hooks/useFilter';
 
 export type Product = {
   id: string;
@@ -25,7 +25,7 @@ export const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const { searchTerm } = useProduct();
+  const { searchTerm } = useFilter();
 
   useEffect(() => {
     async function fetchProducts() {

@@ -1,14 +1,14 @@
 import { createContext, useContext, type Dispatch, type SetStateAction } from 'react';
 
-type ProductContextType = {
+type ProductFilterContextType = {
   searchTerm: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
 };
 
-export const ProductContext = createContext<ProductContextType | undefined>(undefined);
+export const ProductFilterContext = createContext<ProductFilterContextType | undefined>(undefined);
 
-export const useProduct = () => {
-  const context = useContext(ProductContext);
+export const useFilter = () => {
+  const context = useContext(ProductFilterContext);
 
   if (!context) {
     throw new Error('useProduct must be used within ProductSearchProvider');

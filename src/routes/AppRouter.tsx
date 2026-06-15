@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Hero } from '../components/Hero/Hero';
 import { Products } from '../components/Products/ProductList/Products';
 import { ProductDetails } from '../components/Products/ProductDetails/ProductDetails';
 import { Layout } from '../components/Layout/Layout';
+import { Home } from '../components/Home/Home';
 
 export const AppRouter = createBrowserRouter([
   {
@@ -11,12 +11,7 @@ export const AppRouter = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <>
-            <Hero />
-            <Products />
-          </>
-        ),
+        element: <Home />,
       },
       {
         path: 'products',
