@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useFilter } from '../Products/hooks/useFilter';
 
 export const Header = () => {
-  const { searchTerm, setSearchTerm } = useFilter();
+  const { searchTerm, setSearchTerm, searchRef } = useFilter();
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-white/20 backdrop-blur-md">
       <div className="mx-auto flex h-20 items-center justify-between px-8">
@@ -19,9 +19,10 @@ export const Header = () => {
           <input
             type="text"
             placeholder="Search products..."
-            className="border-primary/50 text-primary placeholder:text-primary/70 w-full border bg-white/10 px-5 py-3 backdrop-blur-md outline-none"
+            className="border-primary/50 text-primary placeholder:text-primary/70 focus:border-primary w-full border bg-white/10 px-5 py-3 backdrop-blur-md outline-none"
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
+            ref={searchRef}
           />
         </div>
 
