@@ -26,15 +26,29 @@ export const ProductList = () => {
   const { searchTerm } = useFilter();
   const { data: products, isLoading } = useQuery({ queryKey: ['products'], queryFn: getProducts });
 
+  const selectedSort = searchParams.get('sort');
+
   const filteredProducts = useMemo(() => {
-    if (!searchTerm.trim()) {
-      return products;
+    let result = [...products];
+
+    // Search
+    if (searchTerm.trim()) {
+      result = result.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
     }
 
-    return products?.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
-  }, [products, searchTerm]);
+    // Sort
+    if (selectedSort === 'price') {
+      result.sort((a, b) => a.price - b.price);
+    }
+
+    if (selectedSort === 'name') {
+      result.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    return result;
+  }, [products, searchTerm, selectedSort]);
 
   if (isLoading) {
     return <ProductsSkeleton />;
