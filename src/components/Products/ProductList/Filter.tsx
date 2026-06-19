@@ -5,32 +5,20 @@ export const Filter = () => {
         <h1 className="font-heading text-primary text-3xl wrap-break-word xl:text-5xl">FILTERS</h1>
         <p className="font-heading text-primary pt-2 pb-2 tracking-[0.2rem]">Refine Section</p>
         <section className="pt-5 pb-5">
-          <p className="font-body">Category</p>
+          <p className="font-body">Sort</p>
           {/* select category */}
           <div className="pt-3">
             <div className="flex gap-2">
               <input type="checkbox" name="luggage" id="luggage" />
-              <label>Lugagge</label>
+              <label>sort by price</label>
             </div>
             <div className="flex gap-2">
               <input type="checkbox" name="headphone" id="headphone" />
-              <label>Headphone</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="shoes" id="shoes" />
-              <label>Shoes</label>
+              <label>sort by name</label>
             </div>
           </div>
         </section>
         <hr />
-        <section className="pt-5 pb-5">
-          <p className="font-body">Price Range</p>
-          <input
-            type="range"
-            className="pointer-events-none mt-2 w-full"
-            style={{ pointerEvents: 'auto' }}
-          />
-        </section>
       </div>
     </aside>
   );
