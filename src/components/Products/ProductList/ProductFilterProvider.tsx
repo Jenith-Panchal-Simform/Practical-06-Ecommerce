@@ -1,7 +1,6 @@
 import { useRef, useState, type ReactNode } from 'react';
 import { ProductFilterContext } from '../hooks/useFilter';
 
-
 type ProductProviderProps = {
   children: ReactNode;
 };
@@ -13,7 +12,6 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   function focusOnSearch() {
     searchRef.current?.focus();
   }
-
 
   return (
     <ProductFilterContext.Provider
