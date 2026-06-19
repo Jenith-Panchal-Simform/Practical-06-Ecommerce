@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import {useMemo } from 'react';
+=======
+import { useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
+>>>>>>> 798c683 (refactor:wrap App in QueryClient and use useQuery for data fetch)
 import { useSearchParams } from 'react-router-dom';
 
 import { ProductCard } from './ProductCard';
