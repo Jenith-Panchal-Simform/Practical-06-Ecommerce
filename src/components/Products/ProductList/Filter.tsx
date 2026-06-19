@@ -1,8 +1,14 @@
 import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 
 export const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedSort = searchParams.get('sort');
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    throw new Error('Filter crashed');
+  }
 
   return (
     <aside className="hidden shrink-0 lg:block lg:w-3/12 xl:w-2/12">
@@ -44,7 +50,14 @@ export const Filter = () => {
             </div>
           </div>
         </section>
-        <hr />
+        100vh
+        {/* errorboundary demo  */}
+        <button
+          className="cursor-pointer rounded border px-4 py-2 transition-all duration-300 hover:scale-105"
+          onClick={() => setHasError(true)}
+        >
+          Trigger Error
+        </button>
       </div>
     </aside>
   );
