@@ -10,8 +10,8 @@ export const Layout = () => {
         <div className="bg-tertiary">
           <Outlet />
         </div>
+        <Footer />
       </ProductProvider>
-      <Footer />
     </>
   );
 };

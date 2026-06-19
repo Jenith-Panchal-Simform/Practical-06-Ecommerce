@@ -1,4 +1,7 @@
+import { useFilter } from '../Products/hooks/useFilter';
+
 export const Footer = () => {
+  const { focusOnSearch } = useFilter();
   return (
     <div className="flex flex-col gap-8 bg-white p-6 md:flex-row md:items-center md:justify-between md:p-10 lg:p-20">
       {/* Logo & Copyright */}
@@ -10,6 +13,16 @@ export const Footer = () => {
 
       {/* Links */}
       <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-500 md:justify-end md:text-base">
+        <li
+          className="hover:text-primary cursor-pointer transition-colors"
+          onClick={(e) => {
+            e.preventDefault();
+            focusOnSearch();
+          }}
+        >
+          Focus on search
+        </li>
+
         <li className="hover:text-primary cursor-pointer transition-colors">Privacy Policy</li>
 
         <li className="hover:text-primary cursor-pointer transition-colors">Terms Of Service</li>
