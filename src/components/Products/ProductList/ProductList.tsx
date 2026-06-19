@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { ProductCard } from './ProductCard';
+
 import { ProductsSkeleton } from '../Skeleton/ProductsSkeleton';
 import { getProducts } from '../services/productService';
 import { useFilter } from '../hooks/useFilter';
