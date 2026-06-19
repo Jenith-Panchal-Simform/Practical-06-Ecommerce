@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 
+
 export const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedSort = searchParams.get('sort');
