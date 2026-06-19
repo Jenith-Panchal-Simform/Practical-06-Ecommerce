@@ -1,5 +1,4 @@
 import { useRef, useState, type ReactNode } from 'react';
-
 import { ProductFilterContext } from '../hooks/useFilter';
 
 type ProductProviderProps = {
