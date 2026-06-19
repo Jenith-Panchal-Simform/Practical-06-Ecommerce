@@ -1,4 +1,9 @@
+import { useFilter } from '../hooks/useFilter';
+
 export const Filter = () => {
+  const { searchParams, setSearchParams } = useFilter();
+  const selectedSort = searchParams.get('sort');
+
   return (
     <aside className="hidden shrink-0 lg:block lg:w-3/12 xl:w-2/12">
       <div className="bg-secondary sticky top-20 h-[calc(100vh-80px)] overflow-y-auto px-5 py-5">
@@ -9,12 +14,27 @@ export const Filter = () => {
           {/* select category */}
           <div className="pt-3">
             <div className="flex gap-2">
-              <input type="checkbox" name="luggage" id="luggage" />
-              <label>sort by price</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="headphone" id="headphone" />
-              <label>sort by name</label>
+              <div className="flex gap-2">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="price"
+                  checked={selectedSort === 'price'}
+                  onChange={() => setSearchParams({ sort: 'price' })}
+                />
+                <label htmlFor="price">Price</label>
+              </div>
+
+              <div className="flex gap-2">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="name"
+                  checked={selectedSort === 'name'}
+                  onChange={() => setSearchParams({ sort: 'name' })}
+                />
+                <label htmlFor="name">Name</label>
+              </div>
             </div>
           </div>
         </section>
