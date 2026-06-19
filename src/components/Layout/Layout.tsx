@@ -14,8 +14,8 @@ export const Layout = () => {
             <Outlet />
           </ErrorBoundary>
         </div>
+        <Footer />
       </ProductProvider>
-      <Footer />
     </>
   );
 };
