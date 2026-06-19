@@ -6,7 +6,7 @@
 - On Click of particular Product show its description
 - Allow user to search the products
 - Applied routing for routing to Home and ProductsList Page
-
+- Added Error Boundary
 ---
 
 ## How to Run
