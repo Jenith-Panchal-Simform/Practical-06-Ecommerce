@@ -13,7 +13,7 @@ export const Filter = () => {
           <p className="font-body">Sort</p>
           {/* select category */}
           <div className="pt-3">
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               <div className="flex gap-2">
                 <input
                   type="radio"
@@ -35,6 +35,12 @@ export const Filter = () => {
                 />
                 <label htmlFor="name">Name</label>
               </div>
+              <button
+                className="cursor-pointer rounded border px-2 transition-all duration-500 hover:scale-102"
+                onClick={() => setSearchParams({})}
+              >
+                Clear Filters
+              </button>
             </div>
           </div>
         </section>
