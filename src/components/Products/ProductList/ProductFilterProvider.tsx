@@ -7,7 +7,6 @@ type ProductProviderProps = {
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [searchTerm, setSearchTerm] = useState('');
-
   return (
     <ProductFilterContext.Provider
       value={{
