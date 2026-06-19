@@ -1,10 +1,12 @@
 ## Ecommerce APP in React
- 
+
 ### Features
+
 - Display the Product list from the Api
 - On Click of particular Product show its description
 - Allow user to search the products
 - Applied routing for routing to Home and ProductsList Page
+
 ---
 
 ## How to Run
@@ -27,6 +29,6 @@
 
 ## Demo Link
 
-- Demo Link: https://practical-06-ecommerce.pages.dev/
+- Demo Link: https://feat-tanstack-query.practical-06-ecommerce.pages.dev/
 - Repository Link: https://github.com/Jenith-Panchal-Simform/Practical-06-Ecommerce
-- Pull Request Link: https://github.com/Jenith-Panchal-Simform/Practical-06-Ecommerce/pull/1
+- Pull Request Link: https://github.com/Jenith-Panchal-Simform/Practical-06-Ecommerce/pull/5
