@@ -13,6 +13,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     searchRef.current?.focus();
   }
 
+
   return (
     <ProductFilterContext.Provider
       value={{
