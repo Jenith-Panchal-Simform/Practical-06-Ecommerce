@@ -1,8 +1,16 @@
-import { createContext, useContext, type Dispatch, type SetStateAction } from 'react';
+import {
+  createContext,
+  useContext,
+  type Dispatch,
+  type RefObject,
+  type SetStateAction,
+} from 'react';
 
 type ProductFilterContextType = {
   searchTerm: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
+  searchRef: RefObject<HTMLInputElement | null>;
+  focusOnSearch: () => void;
 };
 
 export const ProductFilterContext = createContext<ProductFilterContextType | undefined>(undefined);
