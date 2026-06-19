@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
+
 export const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedSort = searchParams.get('sort');
@@ -50,7 +51,6 @@ export const Filter = () => {
             </div>
           </div>
         </section>
-        100vh
         {/* errorboundary demo  */}
         <button
           className="cursor-pointer rounded border px-4 py-2 transition-all duration-300 hover:scale-105"
