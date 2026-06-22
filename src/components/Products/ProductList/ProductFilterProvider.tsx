@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
-import { ProductFilterContext } from '../hooks/useFilter';
 import { useSearchParams } from 'react-router-dom';
+
+import { ProductFilterContext } from '../hooks/useFilter';
 
 type ProductProviderProps = {
   children: ReactNode;
