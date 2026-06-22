@@ -1,11 +1,8 @@
 import { createContext, useContext, type Dispatch, type SetStateAction } from 'react';
-import type { SetURLSearchParams } from 'react-router-dom';
 
 type ProductFilterContextType = {
   searchTerm: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
-  searchParams: URLSearchParams;
-  setSearchParams: SetURLSearchParams;
 };
 
 export const ProductFilterContext = createContext<ProductFilterContextType | undefined>(undefined);

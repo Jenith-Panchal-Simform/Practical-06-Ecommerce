@@ -1,4 +1,6 @@
-import { useMemo } from 'react';
+import {useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import { ProductCard } from './ProductCard';
 import { ProductsSkeleton } from '../Skeleton/ProductsSkeleton';
 import { getProducts } from '../services/productService';
@@ -24,7 +26,8 @@ export type Category = {
 
 export const ProductList = () => {
   const { searchTerm } = useFilter();
-  const { data: products, isLoading } = useQuery({ queryKey: ['products'], queryFn: getProducts });
+  const { data: products=[], isLoading } = useQuery({ queryKey: ['products'], queryFn: getProducts });
+  const [searchParams]=useSearchParams()
 
   const selectedSort = searchParams.get('sort');
 

@@ -1,7 +1,7 @@
-import { useFilter } from '../hooks/useFilter';
+import { useSearchParams } from 'react-router-dom';
 
 export const Filter = () => {
-  const { searchParams, setSearchParams } = useFilter();
+  const [searchParams, setSearchParams] = useSearchParams();
   const selectedSort = searchParams.get('sort');
 
   return (
