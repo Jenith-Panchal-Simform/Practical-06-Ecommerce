@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import { ProductCard } from './ProductCard';
 import { ProductsSkeleton } from '../Skeleton/ProductsSkeleton';
 import { getProducts } from '../services/productService';
@@ -24,7 +26,8 @@ export type Category = {
 export const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const { searchTerm, searchParams } = useFilter();
+  const { searchTerm } = useFilter();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     async function fetchProducts() {
