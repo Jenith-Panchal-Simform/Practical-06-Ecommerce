@@ -13,14 +13,14 @@ export const Footer = () => {
 
       {/* Links */}
       <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-500 md:justify-end md:text-base">
-        <li
-          className="hover:text-primary cursor-pointer transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-            focusOnSearch();
-          }}
-        >
-          Focus on search
+        <li>
+          <button
+            type="button"
+            className="hover:text-primary cursor-pointer border-none bg-transparent p-0 transition-colors"
+            onClick={focusOnSearch}
+          >
+            Focus on search
+          </button>
         </li>
 
         <li className="hover:text-primary cursor-pointer transition-colors">Privacy Policy</li>
