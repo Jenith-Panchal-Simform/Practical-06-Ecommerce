@@ -28,6 +28,6 @@
 
 ## Demo Link
 
-- Demo Link: https://feat-error-boundary.practical-06-ecommerce.pages.dev/
+- Demo Link: https://feat-filter.practical-06-ecommerce.pages.dev/products
 - Repository Link: https://github.com/Jenith-Panchal-Simform/Practical-06-Ecommerce
-- Pull Request Link: https://github.com/Jenith-Panchal-Simform/Practical-06-Ecommerce/pull/2
+- Pull Request Link: https://github.com/Jenith-Panchal-Simform/Practical-06-Ecommerce/pull/4

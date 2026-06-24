@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import { ProductCard } from './ProductCard';
+
 import { ProductsSkeleton } from '../Skeleton/ProductsSkeleton';
 import { getProducts } from '../services/productService';
 import { useFilter } from '../hooks/useFilter';
@@ -24,8 +27,8 @@ export type Category = {
 export const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-
   const { searchTerm } = useFilter();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -41,15 +44,29 @@ export const ProductList = () => {
     fetchProducts();
   }, []);
 
+  const selectedSort = searchParams.get('sort');
+
   const filteredProducts = useMemo(() => {
-    if (!searchTerm.trim()) {
-      return products;
+    let result = [...products];
+
+    // Search
+    if (searchTerm.trim()) {
+      result = result.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
     }
 
-    return products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
-  }, [products, searchTerm]);
+    // Sort
+    if (selectedSort === 'price') {
+      result.sort((a, b) => a.price - b.price);
+    }
+
+    if (selectedSort === 'name') {
+      result.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    return result;
+  }, [products, searchTerm, selectedSort]);
 
   if (loading) {
     return <ProductsSkeleton />;

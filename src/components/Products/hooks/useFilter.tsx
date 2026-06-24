@@ -1,10 +1,5 @@
-import {
-  createContext,
-  useContext,
-  type Dispatch,
-  type RefObject,
-  type SetStateAction,
-} from 'react';
+import { createContext, useContext, type Dispatch, type RefObject, type SetStateAction } from 'react';
+
 
 type ProductFilterContextType = {
   searchTerm: string;

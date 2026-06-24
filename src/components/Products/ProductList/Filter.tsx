@@ -1,6 +1,9 @@
+import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 export const Filter = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedSort = searchParams.get('sort');
   const [hasError, setHasError] = useState(false);
 
   if (hasError) {
@@ -13,20 +16,37 @@ export const Filter = () => {
         <h1 className="font-heading text-primary text-3xl wrap-break-word xl:text-5xl">FILTERS</h1>
         <p className="font-heading text-primary pt-2 pb-2 tracking-[0.2rem]">Refine Section</p>
         <section className="pt-5 pb-5">
-          <p className="font-body">Category</p>
+          <p className="font-body">Sort</p>
           {/* select category */}
           <div className="pt-3">
-            <div className="flex gap-2">
-              <input type="checkbox" name="luggage" id="luggage" />
-              <label>Lugagge</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="headphone" id="headphone" />
-              <label>Headphone</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="shoes" id="shoes" />
-              <label>Shoes</label>
+            <div className="flex items-center gap-2">
+              <div className="flex gap-2">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="price"
+                  checked={selectedSort === 'price'}
+                  onChange={() => setSearchParams({ sort: 'price' })}
+                />
+                <label htmlFor="price">Price</label>
+              </div>
+
+              <div className="flex gap-2">
+                <input
+                  type="radio"
+                  name="sort"
+                  id="name"
+                  checked={selectedSort === 'name'}
+                  onChange={() => setSearchParams({ sort: 'name' })}
+                />
+                <label htmlFor="name">Name</label>
+              </div>
+              <button
+                className="cursor-pointer rounded border px-2 transition-all duration-500 hover:scale-102"
+                onClick={() => setSearchParams({})}
+              >
+                Clear Filters
+              </button>
             </div>
           </div>
         </section>
