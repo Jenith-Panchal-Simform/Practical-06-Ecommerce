@@ -1,14 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
-
-
 export const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedSort = searchParams.get('sort');
   const [hasError, setHasError] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const selectedSort = searchParams.get('sort');
 
   if (hasError) {
     throw new Error('Filter crashed');
