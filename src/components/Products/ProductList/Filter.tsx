@@ -1,4 +1,12 @@
+import { useState } from 'react';
+
 export const Filter = () => {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    throw new Error('Filter crashed');
+  }
+
   return (
     <aside className="hidden shrink-0 lg:block lg:w-3/12 xl:w-2/12">
       <div className="bg-secondary sticky top-20 h-[calc(100vh-80px)] overflow-y-auto px-5 py-5">
@@ -31,6 +39,14 @@ export const Filter = () => {
             style={{ pointerEvents: 'auto' }}
           />
         </section>
+
+        {/* errorboundary demo  */}
+        <button
+          className="cursor-pointer rounded border px-4 py-2 transition-all duration-300 hover:scale-105"
+          onClick={() => setHasError(true)}
+        >
+          Trigger Error
+        </button>
       </div>
     </aside>
   );
