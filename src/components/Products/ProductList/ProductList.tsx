@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import {useMemo } from 'react';
-=======
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
->>>>>>> 798c683 (refactor:wrap App in QueryClient and use useQuery for data fetch)
 import { useSearchParams } from 'react-router-dom';
 
 import { ProductCard } from './ProductCard';
@@ -11,7 +7,6 @@ import { ProductCard } from './ProductCard';
 import { ProductsSkeleton } from '../Skeleton/ProductsSkeleton';
 import { getProducts } from '../services/productService';
 import { useFilter } from '../hooks/useFilter';
-import { useQuery } from '@tanstack/react-query';
 
 export type Product = {
   id: string;
