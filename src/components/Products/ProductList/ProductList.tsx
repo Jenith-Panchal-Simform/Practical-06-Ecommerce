@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router-dom';
 
 import { ProductCard } from './ProductCard';
@@ -25,24 +26,11 @@ export type Category = {
 };
 
 export const ProductList = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
   const { searchTerm } = useFilter();
-  const [searchParams] = useSearchParams();
+  const { data: products=[], isLoading } = useQuery({ queryKey: ['products'], queryFn: getProducts });
+  const [searchParams]=useSearchParams()
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const data = await getProducts();
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchProducts();
-  }, []);
+  const selectedSort = searchParams.get('sort');
 
   const selectedSort = searchParams.get('sort');
 
@@ -68,7 +56,7 @@ export const ProductList = () => {
     return result;
   }, [products, searchTerm, selectedSort]);
 
-  if (loading) {
+  if (isLoading) {
     return <ProductsSkeleton />;
   }
 
@@ -84,7 +72,7 @@ export const ProductList = () => {
               products and accessories designed to elevate your everyday.
             </p>
 
-            <p className="text-lg">{filteredProducts.length} Items</p>
+            <p className="text-lg">{filteredProducts?.length} Items</p>
           </div>
         </div>
 
@@ -92,8 +80,8 @@ export const ProductList = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* card */}
 
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => <ProductCard key={product.id} product={product} />)
+          {filteredProducts && filteredProducts.length > 0 ? (
+            filteredProducts?.map((product) => <ProductCard key={product.id} product={product} />)
           ) : (
             <div className="col-span-full py-20 text-center">
               <h2 className="font-heading text-primary text-3xl">No Products Found</h2>
