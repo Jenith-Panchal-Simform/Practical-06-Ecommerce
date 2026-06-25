@@ -50,6 +50,16 @@ export const Filter = () => {
             </div>
           </div>
         </section>
+        <hr />
+        <section className="pt-5 pb-5">
+          <p className="font-body">Price Range</p>
+          <input
+            type="range"
+            className="pointer-events-none mt-2 w-full"
+            style={{ pointerEvents: 'auto' }}
+          />
+        </section>
+
         {/* errorboundary demo  */}
         <button
           className="cursor-pointer rounded border px-4 py-2 transition-all duration-300 hover:scale-105"

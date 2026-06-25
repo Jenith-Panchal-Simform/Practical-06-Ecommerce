@@ -32,6 +32,8 @@ export const ProductList = () => {
 
   const selectedSort = searchParams.get('sort');
 
+  const selectedSort = searchParams.get('sort');
+
   const filteredProducts = useMemo(() => {
     let result = [...products];
 
